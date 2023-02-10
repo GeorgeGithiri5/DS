@@ -14,9 +14,10 @@
 </head>
 
 <body>
-    <div class="prediction">
-        <h1>Income Prediction</h1>
-        <form action="{{ url_for('predict')}}"method="post">
+    <div class="prediction container">
+        <h1 class="text-center">Income Prediction</h1>
+        <div class="my-4 lg-8">
+        <form class="form-group" action="{{ url_for('predict')}}"method="post">
 		<label for="age">Age</label>
 		<input type="text" id="age" name="age" required="required">
 		<br>
@@ -164,7 +165,11 @@
         </form>
 
        <br>
-       <b>{{ prediction_text }}</b>
+        <div class="text-center bg-warning">
+            <b>{{ prediction_text }}</b>
+        </div>
+                
+        </div>
     </div>
 </body>
 </html>
