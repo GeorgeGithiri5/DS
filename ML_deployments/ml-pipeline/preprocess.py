@@ -8,11 +8,11 @@ from utils import dummify_dataset
 if __name__ == "__main__":
     
     with mlflow.start_run(run_name="load_raw_data") as run:
-         mlflow.set_tag("mlflow.runName", "load_raw_data")
-         data_path = os.path.join(
-             os.path.dirname(os.path.abspath(__file__)),
-             "data/raw/hour.csv"
-         )
+        mlflow.set_tag("mlflow.runName", "load_raw_data")
+        data_path = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "data/raw/hour.csv"
+        )
          
         #  load input data into pandas dataframe
         bikes = pd.read_csv(data_path)

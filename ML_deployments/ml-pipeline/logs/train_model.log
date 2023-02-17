@@ -1,0 +1,46 @@
+__main__ - ERROR - 2023-02-17 21:06:21,557-Failed to run workflow due to error: 
+Run (ID '62840844e45e4286ac477ffdb48e8500') failed
+__main__ - ERROR - 2023-02-17 21:06:21,557-Traceback (most recent call last):
+  File "main.py", line 37, in <module>
+    workflow()
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "main.py", line 23, in workflow
+    _run("load_raw_data")
+  File "main.py", line 15, in _run
+    submitted_run = mlflow.run(".", entrypoint, parameters=parameters)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\mlflow\projects\__init__.py", line 307, in run
+    _wait_for(submitted_run_obj)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\mlflow\projects\__init__.py", line 324, in _wait_for
+    raise ExecutionException("Run (ID '%s') failed" % run_id)
+mlflow.exceptions.ExecutionException: Run (ID '62840844e45e4286ac477ffdb48e8500') failed
+
+__main__ - ERROR - 2023-02-17 21:08:05,584-Failed to run workflow due to error: 
+Run (ID '6ff68bd93b274e63b7763199d9b70955') failed
+__main__ - ERROR - 2023-02-17 21:08:05,584-Traceback (most recent call last):
+  File "main.py", line 37, in <module>
+    workflow()
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\click\core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "main.py", line 23, in workflow
+    _run("load_raw_data")
+  File "main.py", line 15, in _run
+    submitted_run = mlflow.run(".", entrypoint, parameters=parameters)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\mlflow\projects\__init__.py", line 307, in run
+    _wait_for(submitted_run_obj)
+  File "C:\Users\user\anaconda3\envs\mlflow-8830a24604b1d4931c87ead3d0771ed845a03771\lib\site-packages\mlflow\projects\__init__.py", line 324, in _wait_for
+    raise ExecutionException("Run (ID '%s') failed" % run_id)
+mlflow.exceptions.ExecutionException: Run (ID '6ff68bd93b274e63b7763199d9b70955') failed
+
