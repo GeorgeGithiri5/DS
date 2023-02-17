@@ -14,7 +14,7 @@ experiment_name = 'Default'
 mlflow.set_experiment(experiment_name)
 
 PORT = 5001  # REST API serving port
-CONTAINER_NAME = "mlflow_example_model_serving"
+CONTAINER_NAME = "modest_wilbur"
 
 best_run_df = mlflow.search_runs(order_by=['metrics.RMSE_CV ASC'], max_results=1)
 if len(best_run_df.index) == 0:
