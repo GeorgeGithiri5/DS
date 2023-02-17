@@ -10,10 +10,10 @@ warnings.filterwarnings('ignore')
 PROJECT_DIR = sys.path[0]
 os.chdir(PROJECT_DIR)
 
-experiment_name = "Default"
+experiment_name = 'Default'
 mlflow.set_experiment(experiment_name)
 
-PORT = 5001
+PORT = 5001  # REST API serving port
 CONTAINER_NAME = "mlflow_example_model_serving"
 
 best_run_df = mlflow.search_runs(order_by=['metrics.RMSE_CV ASC'], max_results=1)
@@ -21,12 +21,14 @@ if len(best_run_df.index) == 0:
     raise Exception(f"Found no runs for experiment '{experiment_name}'")
 
 best_run = mlflow.get_run(best_run_df.at[0, 'run_id'])
-best_model_uri = f"{best_run.info.artifacts_uri}/model"
+best_model_uri = f"{best_run.info.artifact_uri}/model"
+# best_model = mlflow.sklearn.load_model(best_model_uri)
 
+# print best run info
 print("Best run info:")
 print(f"Run id: {best_run.info.run_id}")
-print(f"Run Parameters: {best_run.data.params}")
-print("Run Score: RMSE_CV = {:.4f}".format(best_run.data.metrics['RMSE_CV']))
+print(f"Run parameters: {best_run.data.params}")
+print("Run score: RMSE_CV = {:.4f}".format(best_run.data.metrics['RMSE_CV']))
 print(f"Run model URI: {best_model_uri}")
 
 # remove current container if exists

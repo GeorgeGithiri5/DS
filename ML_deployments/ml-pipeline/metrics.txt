@@ -1,0 +1,2 @@
+
+Root Mean Square Error = 5.269404889289896.
