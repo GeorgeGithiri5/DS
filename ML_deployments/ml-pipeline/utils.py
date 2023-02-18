@@ -1,8 +1,9 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
+
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import KFold, cross_val_score
 
 def dummify_dataset(df, column):
@@ -11,12 +12,13 @@ def dummify_dataset(df, column):
     return df
 
 def rmse(y, y_pred):
-    return np.sqrt(mean_absolute_error(y, y_pred))
+    return np.sqrt(mean_squared_error(y, y_pred))
 
 def rmse_score(y, y_pred):
     score = rmse(y, y_pred)
     return score
 
+# Cross-validation RMSLE score
 def rmsle_cv(model, X_train, y_train):
     kf = KFold(n_splits=3, shuffle=True, random_state=42).get_n_splits(X_train.values)
     rmse = np.sqrt(
@@ -31,6 +33,7 @@ def rmse_cv_score(model, X_train, y_train):
     score = rmsle_cv(model, X_train, y_train)
     return score
 
+# Feature Importance
 def model_feature_importance(model, X_train, model_artifacts_dir):
     feature_importance = pd.DataFrame(
         model.feature_importances_,
@@ -38,15 +41,16 @@ def model_feature_importance(model, X_train, model_artifacts_dir):
         columns=["Importance"],
     )
     
-    feature_importance.sort_values(by="Importance",
-                                   ascending=False,
-                                   inplace=True)
+    # sort by importance
+    feature_importance.sort_values(by="Importance", ascending=False, inplace=True)
+    
     plt.figure(figsize=(12, 8))
     sns.barplot(
         data=feature_importance.reset_index(),
         y="index",
         x="Importance",
     ).set_title("Feature Importance")
-    
+    # save image
     plt.savefig(f"{model_artifacts_dir}/feature_importance.png",
-                bbox_inches="tight")
+                bbox_inches="tight"
+                )
